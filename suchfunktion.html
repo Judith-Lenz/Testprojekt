@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suchfunktion</title>
+
+    <script>
+        let names = ['Alex', 'Berta', 'Christian'];
+
+        function showNames() {
+            let list = document.getElementById('list');
+            list.innerHTML = '';
+            for (let i = 0; i < names.length; i++) {
+                let name = names[i];
+                list.innerHTML += `<li> ${name} </li>`;
+            }
+        }
+        // so kann man erstmal testen, ob die funktion überhaupt das macht was sie soll. also immer wenn sich etwas im Suchfeld ändert, zeige in der Konsole Hallo an.
+        // ein sog. log Statement. Hinweis, man muss nach der Eingabe im Suchfeld immer kurz klicken, sonst geht es nicht.
+        // function filterNames() {
+        //     console.log('Hallo');
+        // }
+
+        // so, wenn alles funktioniert, wollen wir uns natürlich den Wert aus dem input Suchfeld rausholen und hier jetzt auch einfach in der Konsole anzeigen.
+        // Also jedesmal wenn ich was eingebe, wird das in der Konsole angezeigt, was im Input Feld steht.
+        // mit der function .toLowerCase() kann man alle Buchstaben zu Kleinbuchstaben machen.
+        // dann müssen wir noch vergleichen, ob das was man im Suchfeld eintippt mit dem übereinstimmt, was im Array steht.
+        // und dann soll auch nur das angezeigt werden. Also suchen wir mit dem InputFeld nach dem passenden Array und wollen, dass nur das dann auch angezeigt wird.
+        // und eben nicht mehr alle Namen im Array.
+        // Dafür müssen wir die Funktion showNames() raus kopieren und in die funktion filter Names() einbauchen und anpassen.
+        function filterNames() {
+            let search = document.getElementById('search').value;
+            search = search.toLowerCase();
+            console.log(search);
+
+            //hier bauen wir die funktion showNames() von oben ein:
+            // wir löschen erstmal was aus der Liste raus:
+            let list = document.getElementById('list');
+            list.innerHTML = '';
+
+
+            for (let i = 0; i < names.length; i++) {
+                let name = names[i];
+                //Hier soll jetzt nicht mehr jeder Name angezeigt werden, sondern nur wenn ich z.B. Al eingebe, soll Alex angezeigt werden. also wenn ein Array das 
+                // eingegebene auch enthält.
+                if (name.toLowerCase().includes(search)) {  // wenn der name (in Kleinbuchstaben), das beinhaltet,was wir im Textfeld eingegeben (und rausgeholt)haben
+                    //dann füge es in die liste ein.
+                    list.innerHTML += `<li> ${name} </li>`;
+                }
+            }
+        }
+
+        // wenn wir nur a ins Suchfeld eingeben, kommen alle Namen, weil alle den Buchstaben a beinhalten. 
+        // Und es ist hier auch noch um einen Tastenanschlag verzögert. Das ist hier noch nicht relevant. Also wenn ich ein c eintippe passiert noch nichts,
+        //aber wenn ich dann noch ein leerzeichen eingebe, dann wird nach Christian gefiltert.
+
+    </script>
+</head>
+
+<body onload="showNames()">
+    <!-- immer wenn in dem Suchfeld ein neuer Buchstabe eingegeben wird, soll eine neue JS Funktion aufgerufen werden.
+    Die Suche ist eigtl. ein Filter. 
+    onchange bedeutet, immer wenn sich der Inhalt von diesem Textfeld ändert, rufe eine Funktion auf.
+    man kann hier auch onkeydown nehmen, dann wird jedesmal wenn man eine Taste (also bei jedem neu eingegebenen Buchstaben) drückt,die funktion aufgerufen werden. 
+    Ist hier sinnvoller. -->
+    <input type="text" id="search" onkeydown="filterNames()">
+
+    <ul id="list">
+
+    </ul>
+
+</body>
+
+</html>

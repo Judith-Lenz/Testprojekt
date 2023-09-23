@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog bauen</title>
+    <style>
+        .dialog-bg {
+            /* durchsichtig, 20% */
+            background-color: rgba(0, 0, 0, 0.2);
+            /* hier gehen wir auf Nr. sicher, sodass das Dialogfenster wirklich immer ganz oben angezeigt wird (alles andere hat ja z-index: 0) */
+            z-index: 999;
+            /* das fenster soll immer fest drüber liegen, also ein graues overlay */
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            /* jetzt soll was in dem Fenster genau in der mitte liegen, nämlich der weiße Dialog div */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .dialog {
+            height: 50vh;
+            width: 50vw;
+            background-color: white;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            padding: 24px;
+
+        }
+
+        .d-none {
+            display: none;
+        }
+    </style>
+    <script>
+        function openDialog(text) {
+            document.getElementById('dialog').classList.remove('d-none');  //sobald man auf den button drückt wird die klasse d-none entfernt.
+            document.getElementById('dialog-message').innerHTML = text; //hier wird in die div die Variable text übergeben, also das was unten in der Klammer steht, kommt dann hier rein.
+        }
+        function closeDialog() {
+            document.getElementById('dialog').classList.add('d-none');
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- dialog bg stehe für dialog Background -->
+    <div id="dialog" class="dialog-bg d-none" onclick="closeDialog()">
+        <div class="dialog">
+            <h1>Dialog</h1>
+            <p id="dialog-message">Informationen</p>
+        </div>
+    </div>
+    <h1>Überschrift</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam adipisci itaque facere voluptatum fuga quisquam
+        cum sit eligendi, explicabo dolore dolores nostrum quos, repellendus soluta repellat animi et placeat quibusdam.
+    </p>
+    <button onclick="openDialog('Hallo, das ist eine Nachricht')">Dialog öffnen</button>
+    <button onclick="openDialog('Wer das hier liest, hat JavaScript verstanden!')">Dialog öffnen</button>
+</body>
+
+</html>

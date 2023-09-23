@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge Lieferando</title>
+
+    <script>
+// Erstelle ein Array namens menus.
+// Array menus wird die Essennamen von Menüs in unseren Warenkorb enthalten.
+// Tipp:
+// Bitte definiere Variablen immer ganz oben in deinem Script. Die Definitionsreihenfolge ist hier egal.  -->Geschafft!
+
+// Erstelle ein Array namens prices.
+// Array prices wird die Prise von Menüs in unseren Warenkorb enthalten.
+// Tipp:
+// Bitte definiere Variablen immer ganz oben in deinem Script. Die Definitionsreihenfolge ist hier egal.  --> Geschafft!
+
+// Erstelle ein Array namens amounts.
+// Array amounts wird die Menge von Menüs in unseren Warenkorb enthalten.
+// Tipp:
+// Bitte definiere Variablen immer ganz oben in deinem Script. Die Definitionsreihenfolge ist hier egal.   --> Geschafft!
+
+// Füge den Arrays Werte hinzu.
+// Füge dem Array menus Essennamen hinzu. Die Namen sollen vom Datentyp string sein und dürfen keine leeren Zeichen am Anfang und Schluss
+//    des Names enthalten. Z.B.:"Pizza Salami" und nicht " Pizza Salami ".
+// Füge dem Array prices Nummern hinzu. Die Nummern sollen vom Datentyp number und dürfen Kommazahlen sein. Z.B.: 1.99 oder 2.0 und nicht "1.99".
+// Füge dem Array amounts ganze Zahlen hinzu. Die Zahlen sollen vom Datentyp number sein (Keine Kommazahlen!). Z.B.: 1 oder 10 und nicht "1" oder 1.5. --> Geschafft!
+        let menus = ['Pizza Salami', 'Spaghetti Bolognese'];
+        let prices = [12.99, 13.95];
+        let amounts = [1, 2];
+
+// Erstelle eine Hilfsfunktion namens getValueFromInput, welche dir den Wert von einem beliebigen Input Feld zurückgibt.
+// Die Funktion getValueFromInput sollte einen Parameter haben, welcher der ID von einem Input Feld entspricht.
+// kein grünes Häkchen :(
+        function getValueFromInput(id) {  //in Konsole dann für id einfach 'menu'  oder  'price' eingeben, dann ausführen.
+            let idInput = document.getElementById(id).value;
+            console.log(idInput);
+        }
+
+// Erstelle eine Hilfsfunktion namens getMenuFromInput, welche den Wert von dem Input Feld mit der ID menu validiert und zurückgibt.
+// Dem Wert sollten alle leeren Zeichen am Anfang und am Ende entfernt werden.
+// Tipp:
+// - Nutze die Hilfsfunktion getValueFromInput, um die Werte von den Input-Feldern auszulesen.
+// - Versuche auch das Internet für die Lösung des Problems zu verwenden.
+// - Nutze Stichworte beim Suchen, um genau dein Problem zu beschreiben.
+// - Beispiel: "Javascript, String, Remove empty spaces from both sides"
+// ----> wie Hilfsfunktion nutzen und warum????
+        function getMenuFromInput() {
+            let menu = document.getElementById('menu').value;
+            console.log(menu.trim());
+        }
+
+// Erstelle eine Hilfsfunktion namens getPriceFromInput, welche den Wert von dem Input Feld mit der ID price validiert und zurückgibt.
+// Der Wert sollte von Datentyp number sein.
+// Tipp:
+// - Nutze die Hilfsfunktion getValueFromInput, um die Werte des Input Felds herauszulesen.
+// - Versuche im Internet Lösungen zu finden für deine Probleme.
+// - Nutze Stichworte, um genau dein Problem zu beschreiben.
+// - Beispiel: "javascript string convert to number"
+// ---> wie Hilfsfunktion nutzen und warum???
+        function getPriceFromInput() {
+            let price = document.getElementById('price').value;
+            console.log(parseInt(price));
+        }
+
+// Erstelle eine Funktion, welche vom Button Menü hinzufügen per Klick aufgerufen wird.
+// Tipp:
+// Untersuche den Button mit den Developer Tools vom Browser, um den Funktionsnamen herauszufinden.   
+//--> Geschafft!
+
+// Erweitere die Funktion onAddMenu, sodass der Inhalt der Input-Felder am Ende der Arrays menus und prices hinzugefügt werden. Auch am Ende des Arrays amounts
+// sollte eine 1 hinzugefügt werden.
+// Tipp:
+// Nutze die Hilfsfunktionen getMenuFromInput und getPriceFromInput, um die Werte von Input-Feldern herauszulesen. 
+//--> nutze??? klappt in Konsole einwandfrei so.
+        function onAddMenu() {
+            let menu = document.getElementById('menu').value;
+            let price = document.getElementById('price').value;
+            menus.push(menu);
+            prices.push(price);
+            amounts.push(1);
+        }
+
+// Erstelle eine Hilfsfunktion namens getMenuIndex, welche einen Parameter namens menu hat. Das Ergebnis der Funktion ist der Index, wo sich
+// der Parameter menu in dem Array menus befindet. Gebe -1 zurück, wenn das Ergebnis nicht gefunden werden kann.
+// Tipp:
+// - Versuche im Internet Lösungen zu finden für deine Probleme.
+// - Nutze Stichworte beim Suchen, um genau dein Problem zu beschreiben.
+// - Beispiel: "Javascript index of element in array"        
+// --> klappt in Konsole einwandfrei. trotzdem kein grünes Häkchen :(
+        function getMenuIndex(menu) {
+            let index = menus.indexOf(menu);
+            console.log(index);
+        }
+
+
+// Ändere die Funktion onAddMenu so, dass die Werte nur hizugefügt werden, wenn der Wert des Input Felds mit der ID menu sich noch
+// nicht in dem Array menus befindet.
+// Andernfalls, wenn der Wert sich in Array menus befindet, dann finde die Index-Stelle und erhohe der Wert in Array amounst in dieser Stelle um 1.
+// Tipp:
+// Nutze dir das Hilfsfunktion getMenuIndex, um zu überprufen, ob das Menü sich bereits in dem Array menus befindet.
+
+// ---> ok, totale Überforderung :(
+function onAddMenu() {
+            let menu = document.getElementById('menu').value;
+            let price = document.getElementById('price').value;
+            if (menu==menus) {
+                // mache nichts?
+                else{
+                    menus.push(menu);
+                }
+                
+            }
+            
+            prices.push(price);
+            amounts.push(1);
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <input minlength="1" id="menu" placeholder="Füge ein neues Menü hinzu">
+    <br>
+    <input min="0" value="0" type="number" id="price" placeholder="Füge eine neue Prise hinzu">
+    <br>
+    <button onclick="onAddMenu()">Menü hinzufügen</button>
+
+</body>
+
+</html>

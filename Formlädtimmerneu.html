@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form lädt immer neu</title>
+
+    <script>
+        function myfunction() {
+            console.log('Hello');
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Wir haben bei so einem Formular das Problem, dass nach dem Klick auf Absenden und wenn die Eigenschaft action=""  im form Feld leer ist, 
+        das Hello eine Millisekunde in de console zu sehen ist und dann wird einfach wieder diese Seite geladen auf der man sich gerade befindet. 
+        Also das form tag braucht eigtl. immer das Attribut action="". Da muss immer stehen, wohin wir leiten wollen, also 
+        auf welche Seite, nachdem auf Absenden geklickt wurde.
+        Wenn wir aber auf der akt. Seite bleiben wollen, dann geht das ganz einfach: 
+        hinter die Funktion ein Semikolon und dann return false; für das action einsetzen.
+     -->
+    <form onsubmit="myfunction(); return false;">
+        <div><input required type="text" placeholder="Name"></div>
+        <div><input required type="email" placeholder="Email"></div>
+        <button>Absenden</button>
+    </form>
+
+</body>
+
+</html>

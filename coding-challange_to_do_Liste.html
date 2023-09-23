@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge To-do Liste</title>
+
+    <script>
+
+        let todos = ['Opfern', 'Jagen', 'Beten'];
+
+        function render() {
+            let content = document.getElementById('content');
+            content.innerHTML = '';
+           
+
+            for (let i = 0; i < todos.length; i++) {
+                const todo = todos[i];
+                content.innerHTML += `<div>${[todo]}</div>`;
+
+            }
+        }
+
+    </script>
+
+</head>
+
+<body onload="render()">
+
+    <div id="content"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Form Validation</title>
+
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <!--Also hier geht es darum, eine function nicht über den button mit onclick auszuführen, sondern wenn man das formular submitet. Dafür fügt man dem form tag
+    das property onsubmit="" hinzu. und da rein kommt die gewünscht funktion 
+Das Formular wird also nur abgesendet (submitet), wenn die input Felder richtig ausgefüllt sind. Es sind viele versch. Felder möglich mit vers. Eigenschaften-->
+    <form onsubmit="wunschFunktion()">
+        <input id="name" pattern="[A-Za-z0-9]+" type="text" minlength="2" placeholder="Bitte Namen eingeben"> <!--das pattern ist eine sog. regular expression-->
+        <input id="mail" type="email" required placeholder="Bitte Mail eingeben">
+        <input id="phone" type="tel" required placeholder="Bitte Telefonnummer eingeben">
+        <input id="number" type="number" min="10" required placeholder="Bitte Zahl eingeben">
+        <button>Absenden</button>
+    </form>
+
+</body>
+
+</html>
